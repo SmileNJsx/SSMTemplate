@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+        
+        <var name="customer" class="com.kente.pizza.Customer"></var>
+		
+		<view-state id="welcome">
+			<transition on="phoneEntered" to="lookupCustomer"></transition>
+		</view-state>
+		
+		<action-state id="lookupCustomer">
+			<evaluate result="customer" expression="pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)"></evaluate>
+			<transition to="registrationForm" on-exception=""></transition>
+			<transition to="customerReady"></transition>
+		</action-state>
+		
+		<view-state id="registrationForm" model="customer">
+			<on-entry>
+				<evaluate expression=""></evaluate>
+			</on-entry>
+		</view-state>
+		
+		<decision-state></decision-state>
+		
+		<view-state id="deliveryWarning">
+			<transition on="accept" to="addCustomer"></transition>
+		</view-state>
+		
+		<action-state id="addCustomer">
+		</action-state>
+		
+		<end-state id="cancel"></end-state>
+		
+		<end-state id="customerReady"></end-state>
+		
+		<global-transitions>
+			<transition on="cancel" to="cancel"></transition>
+		</global-transitions>
+</flow>

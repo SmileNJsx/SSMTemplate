@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webflow-project-description>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.8.1.201607290748-RELEASE]]></pluginVersion>
+	<configs>
+		<config>
+			<file>src/main/resources/config/spring/customer.xml</file>
+			<name><![CDATA[order]]></name>
+		</config>
+		<config>
+			<file>src/main/resources/config/spring/order.xml</file>
+			<name><![CDATA[order]]></name>
+		</config>
+	</configs>
+</webflow-project-description>
